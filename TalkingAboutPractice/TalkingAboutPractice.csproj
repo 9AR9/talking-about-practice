@@ -121,6 +121,7 @@
     <Content Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\BuilderUml.gif" />
     <Content Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\FactoryMethodUml.gif" />
     <Content Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\PrototypeUml.gif" />
+    <Content Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\SingletonUml.gif" />
     <Content Include="PatternsAndSolutions\InteractiveOrgChart\interactive-org-chart-problem.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -174,6 +175,8 @@
     <Compile Include="HackerRank\Tutorials\CrackingTheCodingInterview\StacksBalancedBrackets\StacksBalancedBrackets.cs" />
     <Compile Include="HackerRank\Tutorials\CrackingTheCodingInterview\StringsMakingAnagrams\StringsMakingAnagrams.cs" />
     <Compile Include="InputAndConversion.cs" />
+    <Compile Include="PatternsAndSolutions\FluentInterface\FluentInterface.cs" />
+    <Compile Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\Singleton.cs" />
     <Compile Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\Prototype.cs" />
     <Compile Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\FactoryMethod.cs" />
     <Compile Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\Builder.cs" />
