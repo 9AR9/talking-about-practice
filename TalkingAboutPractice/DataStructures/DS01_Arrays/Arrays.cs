@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using NUnit.Framework;
 
 namespace TalkingAboutPractice.DataStructures.DS01_Arrays
@@ -48,24 +49,48 @@ namespace TalkingAboutPractice.DataStructures.DS01_Arrays
         }
 
         [Test]
-        public void ShouldAlphabetizeListOfStrings()
+        public void ShouldSortArrayOfIntegersInNumericOrder()
         {
-            string[] words = { "square", "circle", "jazz" };
-            
-            //Array.Sort(words, (x, y) => String.Compare(x, y));
-            Array.Sort(words, String.Compare); // The default behavior of String.Compare performs the same integer-converted alphabetical sorting as the above, longer lambda version
+            int[] integers = { 88, 5, 16, 198, 40, 77, 12 };
 
-            Assert.That(words[0], Is.EqualTo("circle"));
-            Assert.That(words[1], Is.EqualTo("jazz"));
-            Assert.That(words[2], Is.EqualTo("square"));
+            // The default behavior of Array.Sort places numbers in numeric order (same as commented longer version below, with lambda comparison delegate)
+            //Array.Sort(integers, (x, y) => x.CompareTo(y));
+            Array.Sort(integers);
+
+            Assert.That(String.Join(",", integers), Is.EqualTo("5,12,16,40,77,88,198"));
         }
 
         [Test]
-        public void ShouldReverseAlphabetizeListOfStrings()
+        public void ShouldSortArrayOfIntegersInReverseNumericOrder()
+        {
+            int[] integers = { 88, 5, 16, 198, 40, 77, 12 };
+
+            // Passing this comparison as the second parameter of Array.Sort reverses the default comparison check, resulting in reversed order
+            Array.Sort(integers, (x,y) => y.CompareTo(x));
+
+            Assert.That(String.Join(",", integers), Is.EqualTo("198,88,77,40,16,12,5"));
+        }
+
+        [Test]
+        public void ShouldSortArrayOfStringsInAlphabeticalOrder()
         {
             string[] words = { "square", "circle", "jazz" };
 
-            Array.Sort(words, (x, y) => String.CompareOrdinal(y, x)); // A lambda Comparison delegate that subrtracts x from y in the Comparison reverses the sort order
+            // The default behavior of Array.Sort places strings in alphabetic order (same as commented longer version below, with lambda comparison delegate,
+            // which performs an integer-converted alphabetical sorting)
+            //Array.Sort(words, (x, y) => String.CompareOrdinal(x, y));
+            Array.Sort(words);
+
+            Assert.That(String.Join(",", words), Is.EqualTo("circle,jazz,square"));
+        }
+
+        [Test]
+        public void ShouldSortArrayOfStringsInReverseAlphabeticalOrder()
+        {
+            string[] words = { "square", "circle", "jazz" };
+
+            // Passing this comparison as the second parameter of Array.Sort reverses the default comparison check, resulting in reversed order
+            Array.Sort(words, (x, y) => String.CompareOrdinal(y, x));
 
             Assert.That(words[0], Is.EqualTo("square"));
             Assert.That(words[1], Is.EqualTo("jazz"));

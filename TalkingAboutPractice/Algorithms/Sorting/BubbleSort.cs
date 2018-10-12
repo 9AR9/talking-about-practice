@@ -1,17 +1,16 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.SortingBubbleSort
+namespace TalkingAboutPractice.Algorithms.Sorting
 {
     [TestFixture]
-    public class Solution
+    public class BubbleSort
     {
         /*
          * Bubble Sort refers to a simple sort method that traverses through the items in a collection,
          * comparing each to the next in the collection, and swapping them if the next is lower than
-         * the current. It is said to have O(N²) timing, as each member of the collection needs to be
-         * inspected with each pass (N), and there will likely be as many passes as there are members
-         * (also N), so NxN = N². This makes it inefficient as a sort algorithm (and sometimes referred
+         * the current. It is said to have O(n²) timing, as each member of the collection needs to be
+         * inspected with each pass (n), and there will likely be as many passes as there are members
+         * (also n), so n x n = n². This makes it inefficient as a sort algorithm (and sometimes referred
          * to as "naive"), and you'd rarely ever need to implement it in the real world.
          * 
          * Merge Sort is generally considered to be asymptotically more efficient than Bubble Sort,
@@ -20,8 +19,8 @@ namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.S
          * whereas Bubble Sort simply loops through an array quadratically, swapping pairs of array
          * values as needed. Overall, Merge Sort must perform fewer steps, but these steps are more
          * expensive than those involved in Bubble Sort. For large arrays, the extra expense per step
-         * is negligable, so you can generally count on Merge Sort's O(N log2 N) running time to be
-         * faster than Bubble Sort's O(N²) timing.
+         * is negligable, so you can generally count on Merge Sort's O(n log n) running time to be
+         * faster than Bubble Sort's O(n²) timing.
          * 
          * Nevertheless, it is popular as an interview question and we're supposed to know how to do this.
         */
@@ -35,7 +34,8 @@ namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.S
             while (!isSorted)
             {
                 isSorted = true;
-                for (int i = 0; i < count - 1 - fullPasses; i++) // comparison is (i < count-1) and not (i <= count-1) because the last position will have no next value to compare with
+                // comparison is (i < count-1) and not (i <= count-1) because the last position will have no next value to compare with
+                for (int i = 0; i < count - 1 - fullPasses; i++)
                 {
                     if (array[i] > array[i + 1])
                     {
@@ -49,7 +49,7 @@ namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.S
             return array;
         }
 
-        static void BubbleSortWithSwapCount(int[] array)
+        static string BubbleSortWithSwapCount(int[] array)
         {
             var count = array.Length;
             var totalSwaps = 0;
@@ -76,19 +76,15 @@ namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.S
                 totalSwaps += numberOfSwaps;
             }
 
-            Console.WriteLine("Array is sorted in " + totalSwaps + " swaps.");
-            Console.WriteLine("First Element: " + array[0]);
-            Console.WriteLine("Last Element: " + array[count - 1]);
+            return $"Array is sorted in {totalSwaps} swaps. First element: {array[0]}; Last element: {array[count-1]}.";
         }
 
-        static void Swap(int[] array, int indexA, int indexB)
+        private static void Swap(int[] array, int indexA, int indexB)
         {
-            int temp = array[indexA];
+            var temp = array[indexA];
             array[indexA] = array[indexB];
             array[indexB] = temp;
         }
-
-
 
         [Test]
         public void ShouldPerformBasicBubbleSort()
@@ -105,12 +101,9 @@ namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.S
             var consoleOutput = new ConsoleOutput();
             int[] values = { 3, 2, 1 };
 
-            BubbleSortWithSwapCount(values);
-            string[] outputLines = consoleOutput.GetOutputLines();
+            var result = BubbleSortWithSwapCount(values);
 
-            Assert.That(outputLines[0], Is.EqualTo("Array is sorted in 3 swaps."));
-            Assert.That(outputLines[1], Is.EqualTo("First Element: 1"));
-            Assert.That(outputLines[2], Is.EqualTo("Last Element: 3"));
+            Assert.That("Array is sorted in 3 swaps. First element: 1; Last element: 3.", Is.EqualTo(result));
         }
     }
 }

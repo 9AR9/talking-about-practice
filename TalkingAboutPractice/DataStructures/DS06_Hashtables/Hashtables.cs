@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using NUnit.Framework;
 
 namespace TalkingAboutPractice.DataStructures.DS06_Hashtables
@@ -11,7 +12,7 @@ namespace TalkingAboutPractice.DataStructures.DS06_Hashtables
         public void Initialize()
         {
             /*
-             * The C# Hashtable structure is very much like the Dictionary data structure. It also takes in data as key/value
+             * The C# Hashtable structure is the precursor to the Dictionary data structure. It also takes in data as key/value
                pairs, but it does so as generic objects instead of as typed data.
              * Values are then stored in order according to their key's HashCode - meaning that the order in which items are
                added to a C# Hashtable is NOT preserved (another difference from Dictionary).
@@ -25,6 +26,9 @@ namespace TalkingAboutPractice.DataStructures.DS06_Hashtables
              * Run-time errors can be encountered, if bad assumptions are made about the data that needs to be cast when retrieving
                a value. This can happen easily since a Hashtable allows values to be of different types.
              * In Java, HashMap is the counterpart of C#'s Hashtable (whereas TreeMap is like Dictionary).
+             * Expanding a Hashtable is not an inexpensive operation, so, if you have an estimate on how many items your Hashtable
+               will end up containing, you should set the Hashtable's initial capacity accordingly in the constructor so as to
+               avoid unnecessary expansions.
              * 
              * 
              * TODO: What is this business about counting occurences of each value easily with a Hashtable?
@@ -104,6 +108,17 @@ namespace TalkingAboutPractice.DataStructures.DS06_Hashtables
 
             Assert.That(keysConcatenated, Is.Not.EqualTo("2onethree"));
             Assert.That(valuesConcatenated, Is.Not.EqualTo("two1System.Collections.Generic.List`1[System.Double]"));
+        }
+
+        [Test]
+        public void ShouldSetInitialSizeOfHashtableIfEstimateIsKnown()
+        {
+            Hashtable employees = new Hashtable(1000);
+            employees.Add("PHIL","Phillip");
+            employees.Add("JOSE","Josephina");
+            employees.Add("MARK","Mark");
+
+            Assert.That(employees.Count, Is.EqualTo(3));
         }
     }
 }

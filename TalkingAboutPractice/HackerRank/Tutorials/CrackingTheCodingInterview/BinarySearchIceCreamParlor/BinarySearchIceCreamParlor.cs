@@ -69,7 +69,7 @@ namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.B
                 {
                     return true;
                 }
-                else if (x < array[mid])
+                if (x < array[mid])
                 {
                     right = mid - 1;
                     //return BasicRecursiveBinarySearch(array, x, left, mid - 1);

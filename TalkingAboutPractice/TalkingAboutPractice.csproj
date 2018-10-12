@@ -128,8 +128,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\Sorting.cs" />
+    <Compile Include="Algorithms\Searching\BinarySearch.cs" />
+    <Compile Include="Algorithms\Searching\BinarySearchTrees.cs" />
+    <Compile Include="Algorithms\Searching\LinearSearch.cs" />
+    <Compile Include="Algorithms\Sorting\BubbleSort.cs" />
+    <Compile Include="Algorithms\Sorting\Heapsort.cs" />
+    <Compile Include="Algorithms\Sorting\InsertionSort.cs" />
+    <Compile Include="Algorithms\Sorting\MergeSort.cs" />
+    <Compile Include="Algorithms\Sorting\Quicksort.cs" />
+    <Compile Include="Algorithms\WhichIsBestForWhat.cs" />
     <Compile Include="ConsoleOutput.cs" />
+    <Compile Include="DataStructures\DS00_General\Mathy.cs" />
     <Compile Include="DataStructures\DS10_Strings\Strings.cs" />
     <Compile Include="DataStructures\DS06_Hashtables\Hashtables.cs" />
     <Compile Include="DataStructures\DS05_Dictionaries\Dictionaries.cs" />
@@ -140,7 +149,9 @@
     <Compile Include="DataStructures\DS03_Lists\Lists.cs" />
     <Compile Include="DataStructures\DS02_ArrayLists\ArrayLists.cs" />
     <Compile Include="DataStructures\DS01_Arrays\Arrays.cs" />
+    <Compile Include="DataStructures\DS11_BinaryTrees\BinaryTrees.cs" />
     <Compile Include="DesignPhilosopy\AbstractClassesVsInterfaces.cs" />
+    <Compile Include="DesignPhilosopy\Domain\ValueObjectWithEqualityOverrides.cs" />
     <Compile Include="HackerRank\Algorithms\Sorting\ClosestNumbers\ClosestNumbers.cs" />
     <Compile Include="HackerRank\Algorithms\Sorting\CountingSort1\CountingSort1.cs" />
     <Compile Include="HackerRank\Algorithms\Sorting\CountingSort2\CountingSort2.cs" />
@@ -174,7 +185,7 @@
     <Compile Include="HackerRank\Tutorials\CrackingTheCodingInterview\SortingBubbleSort\SortingBubbleSort.cs" />
     <Compile Include="HackerRank\Tutorials\CrackingTheCodingInterview\StacksBalancedBrackets\StacksBalancedBrackets.cs" />
     <Compile Include="HackerRank\Tutorials\CrackingTheCodingInterview\StringsMakingAnagrams\StringsMakingAnagrams.cs" />
-    <Compile Include="InputAndConversion.cs" />
+    <Compile Include="DataStructures\DS00_General\InputAndConversion.cs" />
     <Compile Include="PatternsAndSolutions\FluentInterface\FluentInterface.cs" />
     <Compile Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\Singleton.cs" />
     <Compile Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\Prototype.cs" />
@@ -183,7 +194,7 @@
     <Compile Include="PatternsAndSolutions\GangOfFourDesignPatterns\Creational\AbstractFactory.cs" />
     <Compile Include="PatternsAndSolutions\InteractiveOrgChart\InteractiveOrgChart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataStructures\DS00_ValueAndReferenceTypes\ValueVsReference.cs" />
+    <Compile Include="DataStructures\DS00_General\ValueVsReference.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

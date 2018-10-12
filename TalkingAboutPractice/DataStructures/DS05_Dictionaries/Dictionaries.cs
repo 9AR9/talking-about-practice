@@ -69,7 +69,7 @@ namespace TalkingAboutPractice.DataStructures.DS05_Dictionaries
         [Test]
         public void ShouldIterateUsingKeyValuePairsAndRetainOrderOfAddition()
         {
-            var myDictionary = new Dictionary<string, int> {{"celery", 100}, {"bubblegum", 10}, {"light bulb", 1}, {"space ghost", 1000} };
+            var myDictionary = new Dictionary<string, int> { {"celery", 100}, {"bubblegum", 10}, {"light bulb", 1}, {"space ghost", 1000} };
             string concatenation = "";
             int total = 0;
 

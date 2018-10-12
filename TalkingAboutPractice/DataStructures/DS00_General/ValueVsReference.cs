@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace TalkingAboutPractice.DataStructures.DS00_ValueAndReferenceTypes
+namespace TalkingAboutPractice.DataStructures.DS00_General
 {
     [TestFixture]
     public class ValueVsReference

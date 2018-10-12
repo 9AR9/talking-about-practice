@@ -1,13 +1,13 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.MergeSortCountingInversions
+namespace TalkingAboutPractice.Algorithms.Sorting
 {
     [TestFixture]
     public class Solution
     {
         /*
-         * Merge Sort is known as a pretty efficient sorting algorithm, always giving an O(N log N) 
+         * Merge Sort is known as a pretty efficient sorting algorithm, always giving an O(n log n) 
          * runtime, and can best be conceptualized recursively. It entails splitting a collection into
          * physical halves, sorting those halves individually, then merging the sorted halves back together
          * in a sorted order. The way that merge is accomplished is through recursive application of the
@@ -17,7 +17,13 @@ namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.M
          * because you need to copy the elements into new arrays, merge them, and then copy them back.
          * Because of this, for smaller arrays, Bubble Sort might actually end up being faster, but for
          * larger arrays, the difference is negligible and you can generally count on Merge Sort's
-         * O(N log2 N) running time to be faster than Bubble Sort's O(N²) timing.
+         * O(n log2 n) running time to be faster than Bubble Sort's O(N²) timing.
+         * 
+         * The notation O(n log n), or "oh n log n", refers to n times the log2 of n. This implies a
+         * longer running time than the classic Binary Search which plain logarithmic in complexity
+         * with its O(log n) complexity, and certainly a longer running time than standard linear time
+         * O(n). Still, this is know to be a pretty decent complexity for sort algorithms, as sorting
+         * is a generally more complex process than searching.
         */
 
         public static int[] BasicMergeSort(int[] array)
@@ -166,9 +172,6 @@ namespace TalkingAboutPractice.HackerRank.Tutorials.CrackingTheCodingInterview.M
 
             return inversions;
         }
-
-
-
 
         [Test]
         public void ShouldCountInversions()

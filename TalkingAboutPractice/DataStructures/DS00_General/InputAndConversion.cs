@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
-namespace TalkingAboutPractice
+namespace TalkingAboutPractice.DataStructures.DS00_General
 {
     [TestFixture]
     public class InputAndConversion
@@ -17,6 +17,16 @@ namespace TalkingAboutPractice
             // Multiple integer line, space sparated, convert from strings to integers (example: 1 3 45 6 12 421 9)
             string[] arr_temp = Console.ReadLine().Split(' ');
             int[] values = Array.ConvertAll(arr_temp, int.Parse);
+        }
+
+        [Test]
+        public void StringConversions()
+        {
+            // String to integer
+            int four = int.Parse("4");
+
+            // String to decmial
+            decimal aDecimal = decimal.Parse("11.24");
         }
 
         [Test]
@@ -64,6 +74,62 @@ namespace TalkingAboutPractice
             string spaceDelimitedStringOfIntegers = String.Join(" ", linkedListOfIntegers.ToArray().Select(x => x.ToString()).ToArray());
 
             Assert.That(spaceDelimitedStringOfIntegers, Is.EqualTo("1 99"));
+        }
+
+        [Test]
+        public void Should()
+        {
+            List<string> stringy = new List<string>();
+            stringy.Add("No");
+            stringy.Add("More");
+            stringy.Add("Tears");
+
+            stringy.Sort((x,y) => String.CompareOrdinal(y, x));
+
+            //Assert.That(stringy[2], Is.EqualTo("Tears"));
+            Assert.That(stringy[2], Is.EqualTo("More"));
+            //Assert.That(String.Join(",", stringy), Is.EqualTo("More,No,Tears"));
+            Assert.That(String.Join(",", stringy), Is.EqualTo("Tears,No,More"));
+
+            List<int> ints = new List<int>();
+            ints.Add(1);
+            ints.Add(10);
+            ints.Add(100);
+
+            var commas = String.Join(",", ints);
+            Assert.That(commas, Is.EqualTo("1,10,100"));
+
+            int[] arrayOfInts = new[] {1, 2, 999, 30};
+            var strang = string.Join(",", arrayOfInts);
+            Assert.That(strang, Is.EqualTo("1,2,999,30"));
+
+            List<string> stringy2 = new List<string>();
+            stringy2.Add("No");
+            stringy2.Add("More");
+            stringy2.Add("Tears");
+            stringy2.Add("Beers");
+
+            stringy2.Sort();
+            var ding = stringy2.BinarySearch("Beers");
+            Assert.That(ding, Is.EqualTo(0));
+
+            var booo = stringy2.BinarySearch("oof");
+            if (booo < 0)
+            {
+                stringy2.Insert(~booo, "oof");
+            }
+
+            Assert.That(stringy2.Count, Is.EqualTo(5));
+            Assert.That(stringy2[3], Is.EqualTo("oof"));
+
+            int int1;
+            unchecked
+            {
+                int1 = int.MaxValue + 2147483647 + 10;
+            }
+            //int1 = int.MaxValue + 1;
+            Assert.That(int1, Is.Not.Null);
+
         }
     }
 }

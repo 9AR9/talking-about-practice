@@ -19,7 +19,7 @@ namespace TalkingAboutPractice.DataStructures.DS10_Strings
              * 
              * If initialized without a value, a string will carry a value of null, though you will cause build errors
              * by trying to reference an unassigned local variable. You can manually assign it to null (string s = null)
-             * to avoid that error, but it is more common to assign to String.Empty (or ""), which represent an empty
+             * to avoid that error, but it is more common to assign to String.Empty (or ""), which represents an empty
              * string with zero characters in it, and reduces the chances of a NullReferenceException occuring.
              * 
              * C# strings values are wrapped in double-quotes, while single-quotes are used to wrap character data.
