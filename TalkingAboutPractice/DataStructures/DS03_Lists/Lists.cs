@@ -127,7 +127,7 @@ namespace TalkingAboutPractice.DataStructures.DS03_Lists
             int foundIndex = -1;
             string searchValue = "Disc";
 
-            //words.Sort();
+            words.Sort();
             foundIndex = words.BinarySearch(searchValue);
 
             Assert.That(foundIndex, Is.EqualTo(2));
