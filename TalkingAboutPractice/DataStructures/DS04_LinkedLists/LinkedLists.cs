@@ -115,6 +115,22 @@ namespace TalkingAboutPractice.DataStructures.DS04_LinkedLists
             Assert.That(found2.Next.Value, Is.EqualTo(77));
         }
 
+        [Test]
+        public void ShouldMoveLastValueToFirstValue()
+        {
+            LinkedList<string> ll = new LinkedList<string>();
+            ll.AddLast("1");
+            ll.AddLast("2");
+            ll.AddLast("3");
+            ll.AddLast("4");
+
+            LinkedListNode<string> lastValue = ll.Last;
+            ll.Remove(lastValue);
+            ll.AddFirst(lastValue);
+
+            Assert.AreEqual("4 1 2 3!", SentencitizeLinkedListOfStrings(ll));
+        }
+
         public string SentencitizeLinkedListOfStrings(LinkedList<string> words)
         {
             // This can be done in a single line, instead of writing the foreach loop (commented out below)
